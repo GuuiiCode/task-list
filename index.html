@@ -12,12 +12,18 @@
 </head>
 
 <body>
-    <main class="container">
-        <section class="add-task">
-            <input type="text" name="addTask" placeholder="Add a new task" class="input-task">
-            <button class="btn-add-task">
-                <i class="fa fa-plus"></i>
-            </button>
+    <header>
+        <input type="text" name="addTask" placeholder="Add a new task" maxlength="50" class="input-task" autofocus>
+        <button class="btn-add-task">
+            <i class="fa fa-plus"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="task-list">
+            <hr />
+            <ul class="task">
+            </ul>
         </section>
     </main>
 

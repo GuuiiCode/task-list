@@ -1,62 +1,85 @@
-body {
-    background-color: #131416;
-    color: #fff;
+:root {
+    --white: #fff;
+    --gradient: linear-gradient(90deg, hsla(291, 79%, 51%, 1) 0%, hsla(240, 91%, 73%, 1) 100%);
+    --darker: #131416;
+    --pink: rgb(237, 72, 218);
+    --silver: #c0c0c0;
+    --font-text: 18px;
 }
 
-.container {
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50vw;
-    margin: 0 auto;
-    row-gap: 50px;
+    row-gap: 30px;
+    background: var(--gradient);
+    color: var(--white);
 }
 
-.add-task {
+header {
     display: flex;
+    align-items: center;
     margin-top: 70px;
-    column-gap: 15px;
-}
-
-.input-task,
-.btn-add-task {
-    height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 50px;
+    column-gap: 10px;
 }
 
 .input-task {
-    width: 440px;
-    font-size: 20px;
+    width: 470px;
+    height: 45px;
     padding: 0 20px;
-    color: #fff;
-    background-color: #1E212C;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--darker);
+    color: var(--white);
+    font-size: var(--font-text);
+}
+
+.input-task::placeholder {
+    color: var(--silver);
 }
 
 .btn-add-task {
     width: 40px;
-    background-color: pink;
-}
-
-.task-list {
-    display: flex;
-    align-items: center;
-    width: 530px;
     height: 40px;
-    border-radius: 10px;
-    background-color: #1E212C;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background: var(--pink);
 }
 
-.to-do-list {
+hr {
+    margin-bottom: 20px;
+    width: 550px;
+}
+
+.content {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    width: 530px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: var(--darker);
     padding: 0 15px;
+    margin-bottom: 20px;
 }
 
-.teste {
+.content-left {
     display: flex;
     align-items: center;
     column-gap: 10px;
+    font-size: var(--font-text);
+}
+
+.checkbox-task:checked+span {
+    text-decoration: line-through;
+    color: var(--silver);
+}
+
+.btn-delete-task {
+    border: none;
+    background: transparent;
+    color: var(--silver);
+    font-size: 16px;
 }

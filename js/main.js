@@ -2,50 +2,48 @@ const inputTask = document.querySelector('.input-task');
 
 const btnAddTask = document.querySelector('.btn-add-task');
 
-const main = document.querySelector('.container');
-
+const ul = document.querySelector('.task');
 
 btnAddTask.addEventListener('click', () => {
 
-    let section = document.createElement('section');
-    section.classList.add('task-list');
+    if (inputTask.value) {
+        let li = document.createElement('li');
+        li.classList.add('content');
 
-    let ul = document.createElement('ul');
-    ul.classList.add('to-do-list');
+        let div = document.createElement('div');
+        div.classList.add('content-left');
 
-    let div = document.createElement('div');
-    div.classList.add('teste');
+        let input = document.createElement("input");
+        input.setAttribute('type', 'checkbox');
+        input.classList.add('checkbox-task');
 
-    let input = document.createElement("input");
-    input.setAttribute('type', 'checkbox');
-    input.classList.add('checkbox-task');
+        let span = document.createElement('span');
 
-    let li = document.createElement('li');
+        let button = document.createElement('button');
+        button.classList.add('btn-delete-task');
 
-    let button = document.createElement('button');
-    button.classList.add('btn-delete-task');
-
-    let i = document.createElement('i');
-    i.classList.add('fa');
-    i.classList.add('fa-trash');
+        let i = document.createElement('i');
+        i.classList.add('fa');
+        i.classList.add('fa-trash');
 
 
-    main.appendChild(section);
+        ul.appendChild(li);
 
-    section.appendChild(ul);
+        li.appendChild(div);
 
-    ul.appendChild(div);
+        div.appendChild(input);
 
-    div.appendChild(input);
+        div.appendChild(span);
 
-    div.appendChild(li);
+        li.appendChild(button);
 
-    ul.appendChild(button);
+        button.appendChild(i);
 
-    button.appendChild(i);
+        span.innerHTML = inputTask.value;
 
-    li.innerHTML = inputTask.value;
-    console.log(main.appendChild(section));
+        inputTask.value = "";
 
+        inputTask.focus();
+    }
 });
 
