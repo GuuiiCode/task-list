@@ -43,7 +43,12 @@ btnAddTask.addEventListener('click', () => {
 
         inputTask.value = "";
 
-        inputTask.focus();
+        button.addEventListener('click', () => {
+            ul.removeChild(li);
+        });
     }
+
+    inputTask.focus();
 });
+
 
