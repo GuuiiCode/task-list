@@ -14,21 +14,22 @@ body {
     row-gap: 30px;
     background: var(--gradient);
     color: var(--white);
-    min-width: 100vw;
+    max-width: 100vw;
+    padding-top: 88px;
 }
 
-header {
+header,
+main {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 70px;
+    width: 50vw;
     column-gap: 10px;
-    max-width: 100vw;
 }
 
 .input-task {
-    width: 470px;
-    height: 45px;
-    padding: 0 20px;
+    width: 90%;
+    padding: 15px;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -46,20 +47,18 @@ header {
     height: 40px;
     outline: none;
     border: none;
-    border-radius: 20px;
+    border-radius: 50%;
     background: var(--pink);
 }
 
-hr {
-    margin-bottom: 20px;
-    width: 550px;
+.task-list {
+    width: 100%;
 }
 
 .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 530px;
     height: 60px;
     border-radius: 10px;
     background-color: var(--darker);
