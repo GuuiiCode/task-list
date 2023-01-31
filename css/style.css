@@ -23,7 +23,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50vw;
+    width: 35vw;
     column-gap: 10px;
 }
 
@@ -83,4 +83,28 @@ main {
     background: transparent;
     color: var(--silver);
     font-size: 16px;
+}
+
+
+@media (max-width: 1440px) {
+
+    header,
+    main {
+        width: 65vw;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header,
+    main {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .btn-add-task {
+        height: 35px;
+    }
 }
