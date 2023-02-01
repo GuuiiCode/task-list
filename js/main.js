@@ -1,15 +1,14 @@
 const inputTask = document.querySelector('.input-task');
 
-const btnAddTask = document.querySelector('.btn-add-task');
-
-const ul = document.querySelector('.task-list');
+const taskList = document.querySelector('.task-list');
 
 const KEY_LOCAL_STORAGE = 'taskList';
 
 let db_tasks = [];
 
 
-btnAddTask.addEventListener('click', () => {
+/**Add tasks**/
+function addTasks() {
     if (inputTask.value) {
         let tasks = {
             id: generateId(),
@@ -17,17 +16,12 @@ btnAddTask.addEventListener('click', () => {
         }
 
         createElement(tasks);
-        addTasks(tasks);
+        db_tasks.push(tasks);
+        saveStorage();
         inputTask.value = '';
     }
 
     inputTask.focus();
-});
-
-/**Add tasks**/
-function addTasks(task) {
-    db_tasks.push(task);
-    saveStorage();
 }
 
 /**Save local storage**/
@@ -94,7 +88,7 @@ function createElement(task) {
     i.classList.add('fa');
     i.classList.add('fa-trash');
 
-    ul.appendChild(li);
+    taskList.appendChild(li);
 
     li.appendChild(div);
 
