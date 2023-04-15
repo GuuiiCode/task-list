@@ -1,5 +1,7 @@
 const inputTask = document.querySelector('.input-task');
 
+const btnAddTask = document.querySelector('.btn-add-task');
+
 const taskList = document.querySelector('.task-list');
 
 const KEY_LOCAL_STORAGE = 'taskList';
@@ -8,12 +10,12 @@ let db_tasks = [];
 
 
 /**Add tasks**/
-function addTasks() {
+btnAddTask.addEventListener('click', () => {
     if (inputTask.value) {
         let tasks = {
             id: generateId(),
             name: inputTask.value
-        }
+        };
 
         createElement(tasks);
         db_tasks.push(tasks);
@@ -22,28 +24,11 @@ function addTasks() {
     }
 
     inputTask.focus();
-}
+});
 
 /**Save local storage**/
 function saveStorage() {
     localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(db_tasks));
-}
-
-/**Remove local storage**/
-function deleteStorage(id) {
-    let confirm = window.confirm('Are you sure you want to delete?')
-    if (confirm) {
-        const taskIndex = db_tasks.findIndex(f => f.id == id);
-
-        if (taskIndex < 0) {
-            throw new Error("Task id not found.")
-        }
-
-        db_tasks.splice(taskIndex, 1);
-        saveStorage();
-
-        location.reload();
-    }
 }
 
 /**Recovery local storage**/
@@ -60,6 +45,23 @@ const getStorage = () => {
 
 /**Render elements**/
 getStorage();
+
+/**Remove local storage**/
+function deleteStorage(id) {
+    let confirm = window.confirm('Are you sure you want to delete?');
+    if (confirm) {
+        const taskIndex = db_tasks.findIndex(f => f.id == id);
+
+        if (taskIndex < 0) {
+            throw new Error("Task id not found.")
+        }
+
+        db_tasks.splice(taskIndex, 1);
+        saveStorage();
+
+        location.reload();
+    }
+}
 
 /**Create id**/
 function generateId() {
